@@ -4,10 +4,13 @@ const app=express()
 const dotenv=require("dotenv")
 const cors=require("cors")
 app.use(express.json())
+
+const PORT=process.env.PORT || 8080
 app.use(cors({
     origin:"https://instaclone-frontend-a3oh.onrender.com"
+    // origin:`http://localhost:3001`
 }))
-const PORT=process.env.PORT || 8080
+
 dotenv.config()
 mongoose.connect(process.env.MONGO_URI)
 mongoose.connection.on("connected",()=>{
